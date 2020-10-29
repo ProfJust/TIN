@@ -1,7 +1,5 @@
-// 01_BspFunktion_Potenz.cpp : Defines the entry point for the console application.
-//
+// 01_BspFunktion_Potenz.cpp : 
 
-#include "stdafx.h"
 #include <iostream>
 using namespace std;
 
