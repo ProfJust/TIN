@@ -30,6 +30,7 @@ public:
 
 	void Zeige();
 	void Erweitere(int);
+
 private:
 	int zaehler;
 	int nenner;
@@ -37,13 +38,7 @@ private:
 
 void Bruch::Zeige()
 {
-	/*printf("\n\n %3d", zaehler);
-	printf("\n------");
-	printf("\n %3d \n\n", nenner);*/
-	/*cout << endl << setw(3) << zaehler << endl;
-	cout << "----" << endl;
-	cout << setw(3) << nenner;*/
-	cout << setw(3) << zaehler << " / " << nenner << endl;
+		cout << setw(3) << zaehler << " / " << nenner << endl;
 }
 void Bruch::Erweitere(int faktor)
 {
@@ -68,15 +63,13 @@ void Bruch::Addiere(Bruch summand)
 //--- Überladen des "+"-Zeichens als Operator für die Addition einer ganzen Zahl zu einem Bruch ---
 Bruch Bruch::operator+(int summand)
 {
-	zaehler += summand*nenner;
+	Addiere(summand);
 	return *this;
 }
 //--- Überladen des "+"-Zeichens als Operator für die Addition zweier Brüche ---
 Bruch Bruch::operator+(Bruch summand)
 {
-	zaehler = zaehler*summand.GetNenner()
-		+ summand.GetZaehler()*nenner;
-	nenner = nenner * summand.GetNenner();
+	Addiere(summand);
 	return *this;
 }
 Bruch Bruch::operator/(int divisor)
@@ -86,12 +79,19 @@ Bruch Bruch::operator/(int divisor)
 	return *this;
 }
 //--------------------------------------------------------------------------
-Bruch b1(1, 2), b2(5, 6);
+Bruch b1(1, 2), b2(1, 4);
 int main() {
 	try {
 		cout << "b1 und b2 - Werte nach Konstruktor  " << endl;
 		b1.Zeige();
 		b2.Zeige();
+		
+		b1 = b1 + b2;
+		b1.Zeige();
+
+		b1 = b1 + 1;
+		b1.Zeige();
+
 		b1 / 0; 
 		system("pause");
 		return(0);
@@ -100,35 +100,44 @@ int main() {
 		if (errNo == 0) cout << "Div by Zero "<<endl;
 		system("pause");
 	}
+	return(0);
+}
 
-	////--- Methoden der Klasse aufrufen   Objekt.Methode(Parameter) ---
+
+
+
+
+/*b1.Addiere(b2);
+		b1.Zeige();
+
+		b1.Addiere(1);
+		b1.Zeige();*/
+
+////--- Methoden der Klasse aufrufen   Objekt.Methode(Parameter) ---
+	//Bruch b1, b2;
 	//b1.SetZaehler(1);
 	//b1.SetNenner(2);
 	//b2.SetZaehler(5);
 	//b2.SetNenner(6);
 	//printf("\n b1 ");
 	//b1.Zeige();
-	//printf("\n b2 ");
+	//cout << "\n b2 ";
 	//
-	//printf("\n b1 erweitert mit 3 ");
+	//cout << "\n b1 erweitert mit 3 ";
 	//b1.Erweitere(3);
 	//b1.Zeige();
 
-	///*printf("\n b1 + 2 ");
-	//b1.Addiere(2);
-	//b1.Zeige();
+	//// Versehentliche Veränderung von b1.nenner
+ //  // durch falschen Vergleichsoperator:
+	//if (b1.nenner == b2.nenner) {
+	//	cout << "\n Gemeinsamer Nenner: ", b1.nenner;
+	//}
+	//cout << "\n Bruch b1 nach Fehler"
+	//b1.zeige(); 
 
-	//printf("\n b1 + b2 ");
-	//b1.Addiere(b2);
-	//b1.Zeige();*/
-
-	//printf("\n b1 + 2 ");
-	//b1 = b1 + 2;
-	//b1.Zeige();
-
-	//printf("\n b1 + b2 ");
-	//b1 = b1 + b2;
-	//b1.Zeige();
+	//if (b1.GetNenner() == b2.GetNenner()) {
+	//	cout << "\n Gemeinsamer Nenner: ", b1.GetNenner();
+	//}
 
 
-}
+
