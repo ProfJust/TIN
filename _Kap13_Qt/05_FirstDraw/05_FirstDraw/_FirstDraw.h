@@ -12,7 +12,7 @@ class _FirstDraw : public QMainWindow
 
 public:
 	_FirstDraw(QWidget *parent = Q_NULLPTR);
-	QPainter p;  //Instanz von Painter erstellen
+	QPainter* p;  //Instanz von Painter erstellen
 	void _FirstDraw::paintEvent(QPaintEvent *e);
 	void _FirstDraw::zeichne();
 	
