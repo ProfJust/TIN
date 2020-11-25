@@ -1,0 +1,7 @@
+﻿  Moc'ing _FirstDraw.h...
+  Rcc'ing _FirstDraw.qrc...
+RCC : warning : No resources in 'C:\Users\olafj_000\mySciebo\_TIN_WS19\_TIN_SW_BSP\Kap14_Qt_Paint\05_FirstDraw\05_FirstDraw\_FirstDraw.qrc'.
+  
+  moc__FirstDraw.cpp
+  qrc__FirstDraw.cpp
+  05_FirstDraw.vcxproj -> C:\Users\olafj_000\mySciebo\_TIN_WS19\_TIN_SW_BSP\Kap14_Qt_Paint\05_FirstDraw\x64\Debug\05_FirstDraw.exe
